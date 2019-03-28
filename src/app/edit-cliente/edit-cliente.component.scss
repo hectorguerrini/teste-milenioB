@@ -1,0 +1,19 @@
+.actions{
+  text-align: right;
+  button{
+    margin-right: 15px;
+  }
+  h4{
+    position: fixed;
+  }
+}
+.error {
+  color: red;
+  display: block;
+  position: absolute;
+  font-size: 75%;
+  bottom: -2em;
+}
+.error-msg {
+
+}

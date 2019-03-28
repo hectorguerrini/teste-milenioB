@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center" >
+      <h2>Lista das Pessoas Cadastradas</h2>
+    </div>
+    <div class="col-md-12">
+      <table class="table table-bordered ">
+
+        <colgroup>
+          <col width="10%">
+          <col width="45%">
+          <col width="45%">
+        </colgroup>
+        <thead>
+          <th></th>
+          <th>Nome</th>
+          <th>Email</th>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of lista">
+            <td class="text-center editar" (click)="editCliente(item)"><i class="fa fa-edit"></i> {{item.id_cliente}}
+            </td>
+            <td>{{item.nome}}</td>
+            <td>{{item.email}}</td>
+          </tr>
+          <tr>
+            <td class="text-center criar" (click)="criarCliente()"><i class="fa fa-plus"></i></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

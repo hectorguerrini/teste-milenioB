@@ -1,0 +1,57 @@
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="r.cidade" [term]="t"></ngb-highlight>
+</ng-template>
+<div class="actions">
+  <h4>Cadastro</h4>
+  <button (click)="onSubmitSave()" type="submit" class="btn btn-primary">Salvar <a class="fa fa-save"></a></button>
+  <button (click)="onSubmitDel()" *ngIf="cliente.id_cliente" type="submit" class="btn btn-danger">Excluir <a
+      class="fa fa-trash-o"></a></button>
+</div>
+<form [formGroup]="ClienteForm">
+  <div class="row ">
+    <div class="col-md-6 form-group">
+      <label>Nome</label>
+      <input type="text" class="form-control" formControlName="nome">
+      <div *ngIf="submitted && ClienteForm.controls['nome'].errors" class="error">
+          <div>O campo Nome é obrigatorio</div>
+      </div>
+    </div>
+    <div class="col-md-6 form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email">
+      <div *ngIf="submitted && ClienteForm.controls['email'].errors" class="error">
+          <div>O campo Email é obrigatorio</div>
+      </div>
+    </div>
+    <div class="col-md-4 form-group" [hidden]="ClienteForm.invalid">
+      <label>CEP</label>
+      <input type="text" class="form-control" formControlName="cep">
+    </div>
+    <div class="col-md-4 form-group" [hidden]="ClienteForm.invalid">
+      <label>Endereço</label>
+      <input type="email" class="form-control" formControlName="endereco">
+    </div>
+    <div class="col-md-4 form-group" [hidden]="ClienteForm.invalid">
+      <label>Numero</label>
+      <input type="email" class="form-control" formControlName="numero">
+    </div>
+    <div class="col-md-4 form-group" [hidden]="ClienteForm.invalid">
+      <label>Complemento</label>
+      <input type="text" class="form-control" formControlName="complemento">
+    </div>
+    <div class="col-md-4 form-group" [hidden]="ClienteForm.invalid">
+      <label>Bairro</label>
+      <input type="email" class="form-control" formControlName="bairro">
+    </div>
+    <div class="col-md-4 form-group" [hidden]="ClienteForm.invalid">
+      <label>Cidade</label>
+
+      <input id="typeahead-template" formControlName="id_cidade" [(ngModel)]="ClienteForm.value.id_cidade" type="text"
+        class="form-control" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter" />
+    </div>
+  </div>
+
+</form>
+
+
+
